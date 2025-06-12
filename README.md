@@ -51,15 +51,3 @@ A powerful, web-based code editor enabling **real-time collaboration**, **multi-
 
 ---
 
-## 🔧 Core Implementation
-
-### 📡 Real-Time Communication
-
-```js
-// Server-side code synchronization using Socket.IO
-socket.on('codeChange', ({ roomId, code }) => {
-  if (rooms.has(roomId)) {
-    rooms.get(roomId).code = code;
-    io.to(roomId).emit('codeUpdate', code);
-  }
-});
